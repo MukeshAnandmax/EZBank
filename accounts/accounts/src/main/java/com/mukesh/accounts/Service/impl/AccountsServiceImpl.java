@@ -1,8 +1,11 @@
 package com.mukesh.accounts.Service.impl;
 
 import com.mukesh.accounts.Constants.AccountsConstants;
+import com.mukesh.accounts.Dto.AccountsDto;
 import com.mukesh.accounts.Dto.CustomerDto;
 import com.mukesh.accounts.Exception.CustomerAlreadyExistException;
+import com.mukesh.accounts.Exception.ResourceNotFoundException;
+import com.mukesh.accounts.Mapper.AccountsMapper;
 import com.mukesh.accounts.Mapper.CustomerMapper;
 import com.mukesh.accounts.Service.IAccountsService;
 import com.mukesh.accounts.entity.Accounts;
@@ -62,4 +65,33 @@ public class AccountsServiceImpl implements IAccountsService {
 
         return accounts;
     }
+
+
+
+    @Override
+    public CustomerDto fetchAccount(String mobileNumber) {
+
+        System.out.println("inside service 1");
+
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFoundException("Customer","mobileNumber", mobileNumber)
+        );
+
+        System.out.println("inside service 2");
+
+
+        Accounts accounts = accountRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
+                ()-> new ResourceNotFoundException("Account","customerId",customer.getCustomerId().toString()));
+
+        System.out.println("inside service 3");
+
+
+        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+        customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
+
+
+        return customerDto;
+    }
+
+
 }
