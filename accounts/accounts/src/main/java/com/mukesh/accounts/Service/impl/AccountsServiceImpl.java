@@ -43,8 +43,7 @@ public class AccountsServiceImpl implements IAccountsService {
 
         Customer customer = CustomerMapper.mapToCustomer(customerDto,new Customer());
 
-        customer.setCreatedAt(LocalDateTime.now());
-        customer.setCreatedBy("Mukesh");
+
 
         Customer savedCustomer = customerRepository.save(customer);
         Accounts newAccount = createNewAccount(savedCustomer);
@@ -60,8 +59,7 @@ public class AccountsServiceImpl implements IAccountsService {
         accounts.setAccountNumber(randomAccountNumber);
         accounts.setAccountType(AccountsConstants.SAVINGS);
         accounts.setBranchAddress(AccountsConstants.ADDRESS);
-        accounts.setCreatedAt(LocalDateTime.now());
-        accounts.setCreatedBy("Mukesh Anand");
+
 
         return accounts;
     }
