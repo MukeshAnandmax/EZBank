@@ -2,6 +2,7 @@ package com.mukesh.accounts.controller;
 
 import com.mukesh.accounts.Constants.AccountsConstants;
 import com.mukesh.accounts.Dto.CustomerDto;
+import com.mukesh.accounts.Dto.ErrorResponseDto;
 import com.mukesh.accounts.Dto.ResponseDto;
 import com.mukesh.accounts.Service.IAccountsService;
 import lombok.AllArgsConstructor;
@@ -34,6 +35,33 @@ public class AccountController {
 
         return ResponseEntity.status(HttpStatus.OK)
                 .body( customerDto);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<ResponseDto> updateAccountDetails(@RequestBody CustomerDto customerDto){
+
+        boolean isUpdated = accountsService.updateAccount(customerDto);
+        if(isUpdated){
+            return  ResponseEntity.status(HttpStatus.OK)
+                    .body(new ResponseDto(AccountsConstants.STATUS_200,AccountsConstants.MESSAGE_200));
+        }else{
+            return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ResponseDto(AccountsConstants.STATUS_500,AccountsConstants.MESSAGE_500));
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<ResponseDto> deleteAccountDetails(@RequestParam String mobileNumber){
+
+        boolean isDeleted = accountsService.deleteAccount(mobileNumber);
+
+        if(isDeleted){
+            return  ResponseEntity.status(HttpStatus.OK)
+                    .body(new ResponseDto(AccountsConstants.STATUS_200,AccountsConstants.MESSAGE_200));
+        }else{
+            return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ResponseDto(AccountsConstants.STATUS_500,AccountsConstants.MESSAGE_500));
+        }
     }
 
 
