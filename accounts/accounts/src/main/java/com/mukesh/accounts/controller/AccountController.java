@@ -1,9 +1,9 @@
 package com.mukesh.accounts.controller;
 
 import com.mukesh.accounts.Constants.AccountsConstants;
-import com.mukesh.accounts.Dto.CustomerDto;
-import com.mukesh.accounts.Dto.ErrorResponseDto;
-import com.mukesh.accounts.Dto.ResponseDto;
+import com.mukesh.accounts.dto.CustomerDto;
+import com.mukesh.accounts.dto.ErrorResponseDto;
+import com.mukesh.accounts.dto.ResponseDto;
 import com.mukesh.accounts.Service.IAccountsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
