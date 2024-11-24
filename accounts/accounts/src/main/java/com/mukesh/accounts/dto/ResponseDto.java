@@ -1,4 +1,4 @@
-package com.mukesh.accounts.Dto;
+package com.mukesh.accounts.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,8 @@ import lombok.Data;
         name = "Response",
         description = "Schema to hold Response information"
 )
-@Data@AllArgsConstructor
+@Data
+@AllArgsConstructor
 public class ResponseDto {
     @Schema(
             description = "statusCode of the Response",example = "200"

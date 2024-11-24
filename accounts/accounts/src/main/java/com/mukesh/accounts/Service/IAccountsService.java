@@ -1,6 +1,6 @@
 package com.mukesh.accounts.Service;
 
-import com.mukesh.accounts.Dto.CustomerDto;
+import com.mukesh.accounts.dto.CustomerDto;
 
 public interface IAccountsService {
 

@@ -1,6 +1,6 @@
 package com.mukesh.accounts.Mapper;
 
-import com.mukesh.accounts.Dto.CustomerDto;
+import com.mukesh.accounts.dto.CustomerDto;
 import com.mukesh.accounts.entity.Customer;
 
 public class CustomerMapper {

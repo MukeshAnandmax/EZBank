@@ -1,8 +1,8 @@
 package com.mukesh.accounts.Service.impl;
 
 import com.mukesh.accounts.Constants.AccountsConstants;
-import com.mukesh.accounts.Dto.AccountsDto;
-import com.mukesh.accounts.Dto.CustomerDto;
+import com.mukesh.accounts.dto.AccountsDto;
+import com.mukesh.accounts.dto.CustomerDto;
 import com.mukesh.accounts.Exception.CustomerAlreadyExistException;
 import com.mukesh.accounts.Exception.ResourceNotFoundException;
 import com.mukesh.accounts.Mapper.AccountsMapper;
@@ -15,7 +15,6 @@ import com.mukesh.accounts.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 
