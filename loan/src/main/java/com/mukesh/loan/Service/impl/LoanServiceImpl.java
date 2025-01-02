@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 @AllArgsConstructor
@@ -38,7 +39,7 @@ public class LoanServiceImpl implements ILoanService {
     private Loans createNewLoan( String mobileNumber) {
         Loans loans = new Loans();
         loans.setMobileNumber(mobileNumber);
-        long randomLoanNumber = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
+        long randomLoanNumber = 100000000000L + new Random().nextInt(900000000);
         loans.setLoanNumber(String.valueOf(randomLoanNumber));
         loans.setLoanType(LoansConstants.HOME_LOAN);
         loans.setTotalLoan(LoansConstants.NEW_LOAN_LIMIT);
