@@ -1,6 +1,6 @@
-package com.mukesh.accounts.Exception;
+package com.mukesh.cards.exception;
 
-import com.mukesh.accounts.dto.ErrorResponseDto;
+import com.mukesh.cards.dto.ErrorResponseDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -21,12 +21,12 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(CustomerAlreadyExistException.class)
-    public ResponseEntity<ErrorResponseDto> handleCustomerAlradyExist(CustomerAlreadyExistException customerAlreadyExistException, WebRequest webRequest){
+    @ExceptionHandler(CardAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseDto> handleCustomerAlradyExist(CardAlreadyExistsException cardAlreadyExistsException, WebRequest webRequest){
         ErrorResponseDto errorResponseDto = new ErrorResponseDto(
                 webRequest.getDescription(false),
                 HttpStatus.BAD_REQUEST,
-                customerAlreadyExistException.getMessage(),
+                cardAlreadyExistsException.getMessage(),
                 LocalDateTime.now()
 
         );
