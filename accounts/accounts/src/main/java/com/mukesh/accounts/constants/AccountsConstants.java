@@ -1,4 +1,4 @@
-package com.mukesh.accounts.Constants;
+package com.mukesh.accounts.constants;
 
 public class AccountsConstants {
 

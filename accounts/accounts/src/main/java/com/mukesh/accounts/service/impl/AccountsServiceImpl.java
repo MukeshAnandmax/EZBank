@@ -1,13 +1,13 @@
-package com.mukesh.accounts.Service.impl;
+package com.mukesh.accounts.service.impl;
 
-import com.mukesh.accounts.Constants.AccountsConstants;
+import com.mukesh.accounts.constants.AccountsConstants;
 import com.mukesh.accounts.dto.AccountsDto;
 import com.mukesh.accounts.dto.CustomerDto;
 import com.mukesh.accounts.exception.CustomerAlreadyExistException;
 import com.mukesh.accounts.exception.ResourceNotFoundException;
-import com.mukesh.accounts.Mapper.AccountsMapper;
-import com.mukesh.accounts.Mapper.CustomerMapper;
-import com.mukesh.accounts.Service.IAccountsService;
+import com.mukesh.accounts.mapper.AccountsMapper;
+import com.mukesh.accounts.mapper.CustomerMapper;
+import com.mukesh.accounts.service.IAccountsService;
 import com.mukesh.accounts.entity.Accounts;
 import com.mukesh.accounts.entity.Customer;
 import com.mukesh.accounts.repository.AccountRepository;

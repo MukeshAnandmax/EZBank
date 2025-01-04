@@ -1,4 +1,4 @@
-package com.mukesh.accounts.Service;
+package com.mukesh.accounts.service;
 
 import com.mukesh.accounts.dto.CustomerDto;
 

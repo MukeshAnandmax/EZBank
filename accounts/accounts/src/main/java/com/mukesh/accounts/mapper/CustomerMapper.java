@@ -1,4 +1,4 @@
-package com.mukesh.accounts.Mapper;
+package com.mukesh.accounts.mapper;
 
 import com.mukesh.accounts.dto.CustomerDto;
 import com.mukesh.accounts.entity.Customer;
