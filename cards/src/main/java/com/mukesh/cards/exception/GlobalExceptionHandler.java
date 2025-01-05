@@ -22,7 +22,7 @@ import java.util.Map;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(CardAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponseDto> handleCustomerAlradyExist(CardAlreadyExistsException cardAlreadyExistsException, WebRequest webRequest){
+    public ResponseEntity<ErrorResponseDto> handleCustomerAlreadyExist(CardAlreadyExistsException cardAlreadyExistsException, WebRequest webRequest){
         ErrorResponseDto errorResponseDto = new ErrorResponseDto(
                 webRequest.getDescription(false),
                 HttpStatus.BAD_REQUEST,

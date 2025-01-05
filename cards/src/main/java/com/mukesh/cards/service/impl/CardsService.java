@@ -51,8 +51,7 @@ public class CardsService implements ICardsService {
         Cards cards = cardsRepository.findByMobileNumber(mobileNumber).orElseThrow(
                 () -> new ResourceNotFoundException("Cards", "mobileNumber", mobileNumber)
         );
-        CardsDto cardsDto = CardsMapper.mapToCardsDto(cards, new CardsDto());
-        return cardsDto;
+        return CardsMapper.mapToCardsDto(cards, new CardsDto());
     }
 
     @Override
