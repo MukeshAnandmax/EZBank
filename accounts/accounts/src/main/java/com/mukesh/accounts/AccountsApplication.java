@@ -38,5 +38,5 @@ public class AccountsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AccountsApplication.class, args);
 	}
-
+// adding this comment just to check if git is configured in my mac
 }
