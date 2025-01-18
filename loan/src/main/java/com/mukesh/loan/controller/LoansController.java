@@ -2,24 +2,37 @@ package com.mukesh.loan.controller;
 
 import com.mukesh.loan.Service.ILoanService;
 import com.mukesh.loan.constants.LoansConstants;
+import com.mukesh.loan.dto.LoanContactInfoDto;
 import com.mukesh.loan.dto.LoansDto;
 import com.mukesh.loan.dto.ResponseDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping(path = "/api")
 @Validated
 public class LoansController {
 
-    private ILoanService loanService;
+    private final ILoanService loanService;
 
+    public LoansController(ILoanService loanService) {
+        this.loanService = loanService;
+    }
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @Autowired
+    private Environment environment;
+    @Autowired
+    private LoanContactInfoDto loanContactInfoDto;
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createLoan(@RequestParam @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile Number must be 10 digits")
@@ -60,6 +73,32 @@ public class LoansController {
         }else{
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseDto(LoansConstants.STATUS_417, LoansConstants.MESSAGE_417_DELETE));
         }
+    }
+
+
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildInfo(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buildVersion);
+    }
+
+    @GetMapping("/java-version")
+    public ResponseEntity<String> getJavaVersion(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(environment.getProperty("JAVA_HOME"));
+    }
+
+
+    @GetMapping("/contact-info")
+    public ResponseEntity<LoanContactInfoDto> getContactInfo(){
+
+
+        LoanContactInfoDto loanContactInfoDto1 = loanContactInfoDto;
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(loanContactInfoDto1);
     }
 
 
