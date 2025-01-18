@@ -3,7 +3,7 @@ services:
         image: "mukeshanandmax/accounts:v1"
         container_name: "accounts_ms"
         ports:
-            - "8888:8888"
+            - "8080:8080"
         deploy:
             resources:
                 limits:
