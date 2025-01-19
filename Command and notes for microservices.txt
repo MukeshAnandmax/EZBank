@@ -1,0 +1,8 @@
+
+Webhook using Hookdeck:
+1.brew install hookdeck/hookdeck/hookdeck
+2.hookdeck version
+3.hookdeck login
+4.hookdeck listen 8071 source  --path /monitor
+5.by running above command u will get one source url (source URL: https://hkdk.events/dc16w14fmakgnj)
+6. Add this source url in GitHub and create a webhook.
