@@ -1,5 +1,13 @@
+server:
+  port: 8080
+
 spring:
-  application.name: accounts
+  application:
+    name: "accounts"
+  profiles:
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
@@ -13,28 +21,16 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+rabbitmq:
+  host: "localhost"
+  port: 5672
+  username: "guest"
+  password: "guest"
 
-  config:
-    import:
-      - "application_prod.yml"
-      - "application_qa.yml"
-  profiles:
-    active:
-      - "qa"
-
-
-server:
-  port: 8080
-
-build:
-  version: "3.0"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 
-accounts:
-  message: "Welcome to EZBank accounts related local APIs "
-  contactDetails:
-    name: "John Doe - Developer"
-    email: "john@eazybank.com"
-  onCallSupport:
-    - (555) 555-1234
-    - (555) 523-1345

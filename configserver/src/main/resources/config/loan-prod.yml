@@ -1,14 +1,10 @@
 
-spring:
-  config:
-    activate:
-      on-profile: "prod"
 
 build:
   version: "1.0"
 
-accounts:
-  message: "Welcome to EZBank accounts related prod APIs "
+loan:
+  message: "Welcome to EZBank Loans related prod APIs "
   contactDetails:
     name: "Reine Aishwarya - Product Owner"
     email: "aishwarya@eazybank.com"

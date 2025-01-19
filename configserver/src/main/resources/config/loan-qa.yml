@@ -1,13 +1,10 @@
-spring:
-  config:
-    activate:
-      on-profile: "qa"
+
 
 build:
   version: "2.0"
 
-accounts:
-  message: "Welcome to EZBank accounts related QA APIs "
+loan:
+  message: "Welcome to EZBank Loan related QA APIs "
   contactDetails:
     name: "joe Rai - QA Lead"
     email: "joe@eazybank.com"
